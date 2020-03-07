@@ -64,7 +64,15 @@ access the annotations of a class. A common one is
 ``Doctrine\Common\Annotations\AnnotationReader``:
 
 .. code-block:: php
-
+    
+    use Doctrine\Common\Annotations\AnnotationReader;
+    use Doctrine\Common\Annotations\AnnotationRegistry;
+    
+    // Deprecated and will be removed in 2.0 but currently needed
+    // If you're not using composer autoloader, :ref:`please see the
+    // other annotation autoload mechanisms <annotations>`
+    AnnotationRegistry::registerLoader('class_exists');
+    
     $reflectionClass = new ReflectionClass(Foo::class);
     $property = $reflectionClass->getProperty('bar');
 
